@@ -1,7 +1,7 @@
 // API URLs
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:5000/api'
-    : 'https://quizapp-wpjx.onrender.com/api';  
+    : 'https://quizapp-wpjx.onrender.com/api';  // Updated Render URL
 const TRIVIA_API_URL = 'https://opentdb.com/api.php';
 const TRIVIA_CATEGORIES_URL = 'https://opentdb.com/api_category.php';
 
@@ -234,16 +234,35 @@ function handleAnswer(selectedAnswer) {
     clearInterval(timer);
     const correctAnswer = questions[currentQuestionIndex].correct_answer;
     
+    // Find all answer elements
+    const answers = document.querySelectorAll('.answer');
+    answers.forEach(answer => {
+        const answerText = answer.querySelector('.text').textContent;
+        if (answerText === correctAnswer) {
+            answer.classList.add('correct');
+        } else if (answerText === selectedAnswer && selectedAnswer !== correctAnswer) {
+            answer.classList.add('wrong');
+        }
+    });
+
     if (selectedAnswer === correctAnswer) {
         score++;
     }
 
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        loadQuestion();
-    } else {
-        endQuiz();
-    }
+    // Disable all answers
+    answers.forEach(answer => {
+        answer.style.pointerEvents = 'none';
+    });
+
+    // Wait 1.5 seconds before moving to next question
+    setTimeout(() => {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1500);
 }
 
 async function endQuiz() {
