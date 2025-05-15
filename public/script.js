@@ -1,7 +1,7 @@
 // API URLs
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:5000/api'
-    : 'https://your-render-app-name.onrender.com/api';  // Replace with your actual Render URL
+    : 'https://quizapp-wpjx.onrender.com/api';  
 const TRIVIA_API_URL = 'https://opentdb.com/api.php';
 const TRIVIA_CATEGORIES_URL = 'https://opentdb.com/api_category.php';
 
