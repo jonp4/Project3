@@ -180,10 +180,12 @@ input, select {
 
 .answer.correct {
   border-color: #0cef2a;
+  background-color: rgba(12, 239, 42, 0.1);
 }
 
 .answer.wrong {
   border-color: #fc3939;
+  background-color: rgba(252, 57, 57, 0.1);
 }
 
 .question-wrapper,
@@ -260,6 +262,7 @@ input, select {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .share-buttons .btn {
@@ -272,6 +275,23 @@ input, select {
 
 .share-facebook {
   background: #4267B2;
+}
+
+/* End Screen Score Display */
+.end-screen {
+  text-align: center;
+}
+
+.end-screen .final-score {
+  font-size: 72px;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.end-screen .total-score {
+  font-size: 36px;
+  color: #a2aace;
 }
 
 @media (max-width: 468px) {
