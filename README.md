@@ -1,1 +1,1 @@
-# Project3
+I added on from the previous Project from Quiz App and implemented a signup and login page for users to create an account and login. I also used MongoDB and setup where it can save users score and view there profile and also see the leaderboard. The user are able to view their own play history and see the leaderboard of the top players and see how they rank. Also added a feature to share their score in social media like facebook and X(twitter) and also had a timer which I already had from the previous Project. 
