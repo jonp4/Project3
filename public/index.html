@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Auth Screens -->
+      <div class="auth-screen" id="login-screen">
+        <h1 class="heading">Login</h1>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <p class="auth-switch">Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+        </form>
+      </div>
+
+      <div class="auth-screen hide" id="signup-screen">
+        <h1 class="heading">Sign Up</h1>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-username">Username:</label>
+            <input type="text" id="signup-username" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" required>
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="auth-switch">Already have an account? <a href="#" id="show-login">Login</a></p>
+        </form>
+      </div>
+
+      <!-- Quiz Setup Screen -->
+      <div class="start-screen hide">
+        <h1 class="heading">Quiz App</h1>
+        <div class="settings">
+          <label for="category">Select Category:</label>
+          <select id="category">
+            <option value="">Any Category</option>
+          </select>
+
+          <label for="num-questions">Number of Questions:</label>
+          <select id="num-questions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+          
+          <label for="time">Select time per question:</label>
+          <select id="time">
+            <option value="10">10 seconds</option>
+            <option value="15">15 seconds</option>
+            <option value="20">20 seconds</option>
+            <option value="25">25 seconds</option>
+            <option value="30">30 seconds</option>
+            <option value="60">60 seconds</option>
+          </select>
+        </div>
+        <button class="btn start">Start Quiz</button>
+        <button class="btn view-profile">View Profile</button>
+        <button class="btn view-leaderboard">Leaderboard</button>
+      </div>
+
+      <!-- Quiz Screen -->
+      <div class="quiz hide">
+        <div class="timer">
+          <div class="progress">
+            <div class="progress-bar"></div>
+            <span class="progress-text"></span>
+          </div>
+        </div>
+        <div class="question-wrapper">
+          <div class="number">
+            Question <span class="current">1</span>
+            <span class="total">/10</span>
+          </div>
+          <div class="question">This is a question This is a question?</div>
+        </div>
+        <div class="answer-wrapper">
+        </div>
+        <button class="btn submit" disabled>Submit</button>
+        <button class="btn next">Next</button>
+      </div>
+
+      <!-- End Screen -->
+      <div class="end-screen hide">
+        <h1 class="heading">Quiz Complete!</h1>
+        <div class="score">
+          <span class="score-text">Your score:</span>
+          <div>
+            <span class="final-score">0</span>
+            <span class="total-score">/10</span>
+          </div>
+        </div>
+        <div class="share-buttons">
+          <button class="btn share-twitter">Share on Twitter</button>
+          <button class="btn share-facebook">Share on Facebook</button>
+        </div>
+        <button class="btn restart">Play Again</button>
+        <button class="btn view-profile">View Profile</button>
+        <button class="btn view-leaderboard">Leaderboard</button>
+      </div>
+
+      <!-- Profile Screen -->
+      <div class="profile-screen hide">
+        <h1 class="heading">Profile</h1>
+        <div class="user-info">
+          <h2 class="username"></h2>
+          <p class="email"></p>
+        </div>
+        <div class="history">
+          <h3>Play History</h3>
+          <div class="history-list"></div>
+        </div>
+        <button class="btn back-to-start">Back to Quiz</button>
+      </div>
+
+      <!-- Leaderboard Screen -->
+      <div class="leaderboard-screen hide">
+        <h1 class="heading">Leaderboard</h1>
+        <div class="leaderboard-list"></div>
+        <div class="user-rank">
+          <h3>Your Rank: <span class="rank-number"></span></h3>
+        </div>
+        <button class="btn back-to-start">Back to Quiz</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html> 
